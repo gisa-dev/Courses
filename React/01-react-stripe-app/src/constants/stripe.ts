@@ -1,0 +1,2 @@
+export const STRIPE_API_KEY: string =
+	'pk_test_51JhwoAGjBqppu6wUyMnAvzstsVkGkaIykdEqwcVqoMd7G61fN7xqPmYRUpNa8GAi32xExcifDNoYPD25C3GBpEKy00MfSZq6s7';
