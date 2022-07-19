@@ -14,6 +14,7 @@ import {
 	View,
 } from 'react-native';
 import {styles} from '../theme/appTheme';
+import Tabs from './Tabs';
 
 const Drawer = createDrawerNavigator();
 
@@ -28,7 +29,7 @@ export const SideMenu = () => {
 			}}
 			drawerContent={(props) => <InternalMenu {...props} />}
 		>
-			<Drawer.Screen name="StackNavigator" component={StackNavigator} />
+			<Drawer.Screen name="Tabs" component={Tabs} />
 			<Drawer.Screen name="SettingScreen" component={SettingScreen} />
 		</Drawer.Navigator>
 	);
@@ -52,7 +53,7 @@ const InternalMenu = ({navigation}: DrawerContentComponentProps) => {
 				<TouchableOpacity
 					style={styles.buttonMenu}
 					onPress={() => {
-						navigation.navigate('StackNavigator');
+						navigation.navigate('Tabs');
 					}}
 				>
 					<Text style={styles.textMenu}>Navigation</Text>
