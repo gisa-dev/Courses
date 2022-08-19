@@ -31,8 +31,18 @@ const quotes = [
 const app = Vue.createApp({
 	data() {
 		return {
-      quotes
-    };
+			quotes,
+			newQuote: 'Hello World',
+		};
+	},
+	methods: {
+		addQuote(event) {
+			if (event.key === 'Enter') {
+				this.quotes.unshift({
+					quote: this.newQuote,
+				});
+			}
+		},
 	},
 });
 
