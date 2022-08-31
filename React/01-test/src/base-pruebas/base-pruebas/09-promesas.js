@@ -11,7 +11,7 @@ export const getHeroeByIdAsync = ( id ) => {
             if ( p1 ) {
                 resolve( p1 );
             } else {
-                reject( 'No se pudo encontrar el héroe' );
+                reject( 'No se pudo encontrar el héroe ' + id );
             }
         }, 1000 )
     
@@ -21,6 +21,3 @@ export const getHeroeByIdAsync = ( id ) => {
 }
 
 
-getHeroeByIdAsync(1)
-    .then( console.log )
-    .catch( console.warn );
