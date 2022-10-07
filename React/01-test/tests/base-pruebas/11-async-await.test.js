@@ -1,10 +1,9 @@
 import {getImagen} from '../../src/base-pruebas/base-pruebas/11-async-await';
 
 describe('test in 11-async-await', () => {
-	test('getImagen should return a URL of the image', async () => {
-		const url = await getImagen();
+	test('getImagen should return error if we do not have api key', async () => {
+		const resp = await getImagen();
 
-
-		expect(typeof url).toBe('string');
+		expect(resp).toBe('No se encontro la imagen');
 	});
 });
