@@ -3,6 +3,7 @@ import {FirstApp} from '../src/FirstApp';
 
 describe('Test in <FirstApp/>', () => {
 	const title = 'Hola, Soy Goku';
+	const subTitle = 'Hola, Soy un subtitulo';
 
 	test('should match the snapshot', () => {
 		const {container} = render(<FirstApp title={title} />);
@@ -10,19 +11,21 @@ describe('Test in <FirstApp/>', () => {
 		expect(container).toMatchSnapshot();
 	});
 
-	test('should display the title in h1', () => {
+	test('should display the message "Hola, Soy Goku"', () => {
 		render(<FirstApp title={title} />);
 
 		expect(screen.getByText(title)).toBeTruthy();
-
-		// expect(getByTestId('test-title').innerHTML).toContain(title);
+		// screen.debug();
 	});
 
-	// test('should display the subtitle sent by props', () => {
-	// 	const title = 'Hola, Soy Goku';
-	// 	const subTitle = 'Hola, Soy un subtitulo';
-	// 	const {getAllByText} = render(<FirstApp title={title} subTitle={subTitle} />);
+	test('should display the title in the h1', () => {
+		render(<FirstApp title={title} />);
+		expect(screen.getByRole('heading', {level: 1}).innerHTML).toContain(title);
+	});
 
-	// 	expect(getAllByText(subTitle).length).toBe(2);
-	// });
+	test('should display the subtitle sent by props', () => {
+		render(<FirstApp title={title} subTitle={subTitle} />);
+
+		expect(screen.getAllByText(subTitle).length).toBe(2);
+	});
 });
