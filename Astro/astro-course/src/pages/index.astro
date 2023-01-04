@@ -1,0 +1,33 @@
+---
+const title = 'Mi proyecto en Astro!!!';
+const color = 'warning';
+
+const hobbies = ['Programar', 'Leer', 'Escribir', 'Ver Peliculas'];
+
+const isActive = true;
+---
+
+<h1 class={color}>{title}</h1>
+
+<ul>
+	{hobbies.map((hobby) => <li>{hobby}</li>)}
+</ul>
+
+<h3 class="danger"> { isActive && 'Online'}</h3>
+
+<style>
+	body {
+		background-color: #202020;
+		color: #fff;
+	}
+
+	.title {
+		color: skyblue;
+	}
+	.danger {
+		color: red;
+	}
+	.warning {
+		color: orange;
+	}
+</style>

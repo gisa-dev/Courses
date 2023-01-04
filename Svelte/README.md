@@ -1,1 +1,0 @@
-# Svelte <img align="left" alt="Svelte" width="26px" src="https://raw.githubusercontent.com/sveltejs/branding/master/svelte-logo.png" />
