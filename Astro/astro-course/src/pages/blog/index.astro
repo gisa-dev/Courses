@@ -1,0 +1,26 @@
+---
+import Layout from '../../components/Layout.astro';
+
+const posts = await Astro.glob('./posts/*.md');
+---
+
+<Layout>
+	<h1>Blog</h1>
+
+	<img src="https://picsum.photos/400" alt="images">
+
+	{posts.map((post) => <a href={post.url}>{post.frontmatter.title}</a>)}
+</Layout>
+
+<style>
+	a {
+		text-decoration: none;
+		list-style: none;
+		color: #fff;
+    display: block;
+    margin-bottom: 0.25rem;
+	}
+	a:visited {
+		color: skyblue;
+	}
+</style>

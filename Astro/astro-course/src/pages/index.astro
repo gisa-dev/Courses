@@ -1,33 +1,11 @@
 ---
-const title = 'Mi proyecto en Astro!!!';
-const color = 'warning';
-
-const hobbies = ['Programar', 'Leer', 'Escribir', 'Ver Peliculas'];
-
-const isActive = true;
+import Layout from '../components/Layout.astro';
+import ButtonSubscribe from '../components/ButtonSubscribe';
 ---
 
-<h1 class={color}>{title}</h1>
+<Layout pageTitle="Home" pageDescription="Home Page">
+	<h1>Home page</h1>
+	<p>Welcome to my blog</p>
 
-<ul>
-	{hobbies.map((hobby) => <li>{hobby}</li>)}
-</ul>
-
-<h3 class="danger"> { isActive && 'Online'}</h3>
-
-<style>
-	body {
-		background-color: #202020;
-		color: #fff;
-	}
-
-	.title {
-		color: skyblue;
-	}
-	.danger {
-		color: red;
-	}
-	.warning {
-		color: orange;
-	}
-</style>
+	<ButtonSubscribe client:visible/>
+</Layout>
