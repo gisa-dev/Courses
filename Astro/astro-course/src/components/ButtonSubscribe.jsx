@@ -1,14 +1,22 @@
 import {useState} from 'react';
+import {ToastContainer, toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ButtonSubscribe = () => {
 	const [subscribe, setSubscribe] = useState(false);
 
-	console.log(subscribe);
-
 	return (
-		<button onClick={() => setSubscribe(!subscribe)}>
-			{subscribe ? 'already subscribed' : 'subscribe'}
-		</button>
+		<>
+			<button
+				onClick={() => {
+					toast.success('congratulations you are already subscribed');
+					setSubscribe(!subscribe);
+				}}
+			>
+				{subscribe ? 'already subscribed' : 'subscribe'}
+			</button>
+			<ToastContainer />
+		</>
 	);
 };
 
