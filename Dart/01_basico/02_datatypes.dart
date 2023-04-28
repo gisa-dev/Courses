@@ -17,11 +17,21 @@ main() {
   String nombre = 'Tony';
   String nombre2 = "Tony";
   String nombre3 = "O'Connor";
+  String apellido = 'Stark';
+
+  String nombreCompleto = '$nombre $apellido';
 
   String multilinea = '''
   Hola Mundo
   Como estas?
+  $nombreCompleto
   O'Connor''';
 
-  print(multilinea);
+  // print(multilinea);
+
+  // ==== Booleans
+  bool isActive = true;
+  bool isNotActive = !isActive;
+
+  print(isNotActive);
 }
