@@ -33,5 +33,48 @@ main() {
   bool isActive = true;
   bool isNotActive = !isActive;
 
-  print(isNotActive);
+  // print(isNotActive);
+
+  // ==== Lists
+  // List<String> villanosDeprecated = new List();
+  List<String> villanos = ['Lex', 'Red Skull', 'Doom'];
+
+  villanos.add('Duende verde');
+  villanos.add('Duende verde');
+  villanos.add('Duende verde');
+  villanos.add('Duende verde');
+
+  // print(villanos);
+
+  var villanosSet = villanos.toSet();
+  // print(villanosSet.toList());
+
+  // ==== Sets
+  Set<String> villanos2 = {'Lex', 'Red Skull', 'Doom'};
+  villanos2.add('Duende verde');
+  villanos2.add('Duende verde');
+  villanos2.add('Duende verde');
+
+  // print(villanos2);
+
+  // ==== Maps
+  Map<int, dynamic> ironman = {
+    1: 'Tony Stark',
+    2: 'Inteligencia y dinero',
+    3: 9000,
+  };
+
+  // print(ironman[3]);
+
+  Map<String, dynamic> capitan = new Map();
+
+  capitan.addAll({
+    'nombre': 'Steve Roger',
+    'poder': 'Super fuerza, super velocidad',
+    'nivel': 5000,
+  });
+
+  // capitan.addAll(ironman);
+
+  // print(capitan);
 }
