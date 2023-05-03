@@ -1,0 +1,17 @@
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\bin\Debug\net6.0-windows\CursoC#.exe
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\bin\Debug\net6.0-windows\CursoC#.deps.json
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\bin\Debug\net6.0-windows\CursoC#.runtimeconfig.json
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\bin\Debug\net6.0-windows\CursoC#.dll
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\bin\Debug\net6.0-windows\CursoC#.pdb
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.csproj.AssemblyReference.cache
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC_.Form1.resources
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.csproj.GenerateResource.cache
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.AssemblyInfoInputs.cache
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.AssemblyInfo.cs
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.csproj.CoreCompileInputs.cache
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.dll
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\refint\CursoC#.dll
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.pdb
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\CursoC#.genruntimeconfig.cache
+C:\Users\Gilbert\Documents\GitHub\Courses\C#\CursoC#\CursoC#\obj\Debug\net6.0-windows\ref\CursoC#.dll
