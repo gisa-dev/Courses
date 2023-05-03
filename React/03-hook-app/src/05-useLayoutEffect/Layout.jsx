@@ -1,8 +1,8 @@
 import {useCounter, useFetch} from '../hooks';
-import LoadingQuote from './components/LoadingQuote';
-import Quote from './components/Quote';
+import LoadingQuote from '../03-examples/components/LoadingQuote';
+import Quote from '../03-examples/components/Quote';
 
-const MultipleCustomHooks = () => {
+const Layout = () => {
 	const {counter, increment} = useCounter(1);
 
 	const {data, isLoading, hasError} = useFetch(
@@ -29,4 +29,4 @@ const MultipleCustomHooks = () => {
 	);
 };
 
-export default MultipleCustomHooks;
+export default Layout;
