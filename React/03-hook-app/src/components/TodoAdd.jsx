@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
 import useForm from '../hooks/useForm';
 
-export const TodoAdd = ({handleNewTodo}) => {
+export const TodoAdd = ({onNewTodo}) => {
 	const {description, onInputChange, onResetForm} = useForm({
 		description: '',
 	});
@@ -17,20 +16,21 @@ export const TodoAdd = ({handleNewTodo}) => {
 			id: new Date().getTime(),
 		};
 
-		handleNewTodo(newTodo);
+		onNewTodo(newTodo);
+		onResetForm();
 	};
 
 	return (
 		<form onSubmit={onFormSubmit}>
 			<input
-				type="text"
-				placeholder="Que hay que hacer?"
-				className="form-control"
-				name="description"
+				type='text'
+				placeholder='Que hay que hacer?'
+				className='form-control'
+				name='description'
 				value={description}
 				onChange={onInputChange}
 			/>
-			<button type="submit" className="btn btn-outline-primary mt-2 w-100">
+			<button type='submit' className='btn btn-outline-primary mt-2 w-100'>
 				Agregar
 			</button>
 		</form>
