@@ -1,12 +1,20 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+	const navigate = useNavigate();
+
+	const handleLogout = () => {
+		navigate('/login', {
+			replace: true,
+		});
+	};
+
 	let activeClass =
 		'block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500';
 
 	return (
 		<nav className='bg-white border-gray-200 dark:bg-gray-900'>
-			<div className='flex flex-wrap items-center justify-between max-w-screen-xl py-4 mx-auto'>
+			<div className='flex flex-wrap items-center justify-between max-w-screen-xl px-2 py-4 mx-auto lg:px-0'>
 				<Link to='/'>
 					<span className='self-center text-2xl font-semibold whitespace-nowrap dark:text-white'>
 						Asociaciones
@@ -38,13 +46,25 @@ export const Navbar = () => {
 								DC
 							</NavLink>
 						</li>
+						<li>
+							<NavLink
+								className={({ isActive }) =>
+									isActive ? activeClass : 'text-white hover:text-blue-700'
+								}
+								to='/search'
+							>
+								Search
+							</NavLink>
+						</li>
 					</ul>
 				</div>
 
-				<div className='flex'>
+				<div className='flex items-center gap-3'>
+					<span className='font-bold text-indigo-300'>Gilbert</span>
 					<button
+						className='px-4 py-2 mr-3 text-sm font-medium text-center text-white transition duration-300 ease-in-out bg-red-700 rounded-lg hover:bg-red-800 md:mr-0'
 						type='button'
-						className='px-4 py-2 mr-3 text-sm font-medium text-center text-white transition duration-300 ease-in-out bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 md:mr-0'
+						onClick={handleLogout}
 					>
 						Logout
 					</button>

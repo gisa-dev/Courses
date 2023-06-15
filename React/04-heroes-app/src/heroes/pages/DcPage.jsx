@@ -1,11 +1,13 @@
-import { Layout } from '../../ui/components/Layout';
-
 export const DcPage = () => {
 	return (
 		<>
-			<Layout>
-				<h1>DcPage</h1>
-			</Layout>
+			<h1 className='title'>
+				DC Comics
+			</h1>
+			<ul>
+				<li>Superman</li>
+				<li>Batman</li>
+			</ul>
 		</>
 	);
 };
