@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .title {
-	@apply py-5 mb-5 text-4xl font-semibold border-b-4 border-slate-300;
+	@apply py-5 mb-5 text-4xl font-semibold border-b-4 border-slate-300 animate-fade;
 }

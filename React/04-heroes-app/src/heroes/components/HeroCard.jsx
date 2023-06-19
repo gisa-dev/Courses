@@ -15,7 +15,10 @@ export const HeroCard = ({
 
 	return (
 		<li className='w-full drop-shadow-md'>
-			<Link to='#' className='relative block bg-black rounded-lg group'>
+			<Link
+				to={`/hero/${id}`}
+				className='relative block bg-black rounded-lg group'
+			>
 				<img
 					alt='Developer'
 					src={heroImageUrl}
@@ -35,15 +38,23 @@ export const HeroCard = ({
 					</div>
 					<div className='mt-32 sm:mt-48 lg:mt-64'>
 						<div className='flex flex-col items-start transition-all duration-300 ease-in-out transform translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100'>
-							<span className='font-semibold text-white'>{alter_ego}</span>
 							<span className='font-semibold text-white'>
 								{first_appearance}
 							</span>
-							<span className='font-semibold text-white'>{characters}</span>
+							<span className='font-semibold text-white'>{alter_ego}</span>
+							<CharactersByHero alter_ego={alter_ego} characters={characters} />
 						</div>
 					</div>
 				</div>
 			</Link>
 		</li>
+	);
+};
+
+const CharactersByHero = ({ alter_ego, characters }) => {
+	return alter_ego === characters ? (
+		<></>
+	) : (
+		<span className='font-semibold text-white'>{characters}</span>
 	);
 };
