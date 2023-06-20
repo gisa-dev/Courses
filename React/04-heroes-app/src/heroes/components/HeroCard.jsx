@@ -14,7 +14,7 @@ export const HeroCard = ({
 		publisher === 'Marvel Comics' ? 'bg-[#f2161d]' : 'bg-[#0176e7]';
 
 	return (
-		<li className='w-full drop-shadow-md'>
+		<li className='w-full list-none drop-shadow-md animate-fade-down'>
 			<Link
 				to={`/hero/${id}`}
 				className='relative block bg-black rounded-lg group'
