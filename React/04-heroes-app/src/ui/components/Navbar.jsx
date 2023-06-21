@@ -1,9 +1,14 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { useUser } from '../../auth/hooks/useUser';
 
 export const Navbar = () => {
+	const { user, logout } = useUser();
+
 	const navigate = useNavigate();
 
 	const handleLogout = () => {
+		logout();
+
 		navigate('/login', {
 			replace: true,
 		});
@@ -60,7 +65,7 @@ export const Navbar = () => {
 				</div>
 
 				<div className='flex items-center gap-3'>
-					<span className='font-bold text-indigo-300'>Gilbert</span>
+					<span className='font-bold text-indigo-300'>{user?.name}</span>
 					<button
 						className='px-4 py-2 mr-3 text-sm font-medium text-center text-white transition duration-300 ease-in-out bg-red-700 rounded-lg hover:bg-red-800 md:mr-0'
 						type='button'

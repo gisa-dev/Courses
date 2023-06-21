@@ -1,10 +1,17 @@
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../hooks/useUser';
 
 export const LoginPage = () => {
+	const { login } = useUser();
+
 	const navigate = useNavigate();
 
 	const handleLogin = () => {
-		navigate('/marvel', {
+		const lastPath = localStorage.getItem('lastPath') || '/';
+
+		login('Gilbert Acosta');
+
+		navigate(lastPath, {
 			replace: true,
 		});
 	};
