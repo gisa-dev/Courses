@@ -31,11 +31,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
 				}}
 			>
 				<Toolbar>
-					<Typography
-						noWrap
-						component='span'
-						sx={{ fontSize: `${1.3}rem`, fontWeight: 500 }}
-					>
+					<Typography noWrap component='span' fontSize={22} fontWeight={500}>
 						Gilberto Acosta
 					</Typography>
 				</Toolbar>
