@@ -28,7 +28,8 @@ export const Navbar = ({ drawerWidth = 240 }) => {
 					<Typography
 						component='h1'
 						noWrap
-						sx={{ fontSize: 22, fontWeight: 600 }}
+						fontSize={22}
+						fontWeight='bold'
 					>
 						JournalApp
 					</Typography>
