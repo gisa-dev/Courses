@@ -1,5 +1,3 @@
-import { useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
 import {
 	Alert,
@@ -10,54 +8,22 @@ import {
 	Typography,
 } from '@mui/material';
 import { AuthLayout } from '../layout/AuthLayout';
-import { useForm } from '../../hooks';
-import { startCreatingUserWithEmailPassword } from '../../store/auth';
-
-const formData = {
-	displayName: '',
-	email: '',
-	password: '',
-};
-
-const formValidations = {
-	email: [(value) => value.includes('@'), 'Email should have an @'],
-	password: [
-		(value) => value.trim().length >= 6,
-		'Password should be at least 6 characters',
-	],
-	displayName: [(value) => value.trim().length >= 1, 'Name is required'],
-};
+import { useRegisterPage } from '../../hooks';
 
 export const RegisterPage = () => {
-	const { status, errorMessage } = useSelector((state) => state.auth);
-	const dispatch = useDispatch();
-
-	const [formSubmitted, setFormSubmitted] = useState(false);
-	const isCheckingAuthentication = useMemo(
-		() => status === 'checking',
-		[status],
-	);
-
 	const {
-		formState,
+		onSubmit,
 		displayName,
-		email,
-		password,
 		onInputChange,
-		isFormValid,
 		displayNameValid,
+		formSubmitted,
+		email,
 		emailValid,
+		password,
 		passwordValid,
-	} = useForm(formData, formValidations);
-
-	const onSubmit = (event) => {
-		event.preventDefault();
-		setFormSubmitted(true);
-
-		if (!isFormValid) return;
-
-		dispatch(startCreatingUserWithEmailPassword(formState));
-	};
+		errorMessage,
+		isCheckingAuthentication,
+	} = useRegisterPage();
 
 	return (
 		<AuthLayout title='Register'>

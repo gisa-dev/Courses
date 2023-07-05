@@ -31,7 +31,13 @@ export const SideBarItem = memo(
 					<ListItemIcon>
 						<TurnedInNot />
 					</ListItemIcon>
-					<Grid container>
+					<Grid
+						container
+						direction='row'
+						justifyContent='center'
+						alignItems='center'
+						gap={0.1}
+					>
 						<ListItemText primary={newTitle} />
 						<ListItemText secondary={newBody} />
 					</Grid>
