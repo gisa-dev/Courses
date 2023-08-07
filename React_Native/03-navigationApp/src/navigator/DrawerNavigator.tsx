@@ -14,6 +14,7 @@ import {
 import { SettingsScreen } from '../screens';
 import { styles } from '../theme/appTheme';
 import StackNavigator from './StackNavigator';
+import { Tabs } from './BottomTabsNavigator';
 
 const Drawer = createDrawerNavigator();
 
@@ -27,7 +28,7 @@ const DrawerNavigator = () => {
 				drawerType: width >= 600 ? 'permanent' : 'front',
 			}}
 		>
-			<Drawer.Screen name='StackNavigator' component={StackNavigator} />
+			<Drawer.Screen name='Tabs' component={Tabs} />
 			<Drawer.Screen name='Settings' component={SettingsScreen} />
 		</Drawer.Navigator>
 	);
@@ -53,7 +54,7 @@ const InternalMenu = ({ navigation }: DrawerContentComponentProps) => {
 				<TouchableOpacity
 					style={styles.menuButton}
 					onPress={() => {
-						navigation.navigate('StackNavigator');
+						navigation.navigate('Tabs');
 					}}
 				>
 					<Text style={styles.menuText}>Navigation</Text>
