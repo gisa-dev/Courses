@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 	globalMargin: {
@@ -8,39 +8,41 @@ export const styles = StyleSheet.create({
 		fontSize: 30,
 		marginBottom: 10,
 	},
-	bigButton: {
+	buttonContainer: {
+		flexDirection: 'row',
+		gap: 10,
+		marginTop: 15,
+	},
+	largeButton: {
 		width: 100,
 		height: 100,
 		backgroundColor: 'red',
 		borderRadius: 20,
 		alignItems: 'center',
 		justifyContent: 'center',
-		marginRight: 10,
 	},
-	bigButtonText: {
+	largeButtonText: {
 		color: 'white',
 		fontSize: 18,
 		fontWeight: 'bold',
 	},
 	avatarContainer: {
 		alignItems: 'center',
-		marginTop: 20
+		marginTop: 20,
 	},
 	avatar: {
 		width: 150,
 		height: 150,
-		borderRadius: 100
+		borderRadius: 100,
 	},
 	menuContainer: {
+		marginHorizontal: 50,
 		marginVertical: 30,
-		marginHorizontal: 50
-
 	},
-	buttonMenu : {
-		marginVertical: 10
+	menuButton: {
+		marginVertical: 10,
 	},
-	textMenu: {
+	menuText: {
 		fontSize: 20,
-		
 	},
 });
