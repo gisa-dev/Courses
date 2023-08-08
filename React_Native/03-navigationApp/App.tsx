@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import DrawerNavigator from './src/navigator/DrawerNavigator';
-import BottomTabs from './src/navigator/BottomTabsNavigator';
+import { AuthProvider } from './src/context/AuthContext';
+// import BottomTabs from './src/navigator/BottomTabsNavigator';
 
 // import StackNavigator from './src/navigator/StackNavigator';
 // import DrawerNavigatorBasic from './src/navigator/DrawerNavigatorBasic';
@@ -9,10 +10,12 @@ import BottomTabs from './src/navigator/BottomTabsNavigator';
 const App = () => {
 	return (
 		<NavigationContainer>
-			{/* <StackNavigator /> */}
-			{/* <DrawerNavigatorBasic /> */}
-			<DrawerNavigator />
-			{/* <BottomTabs/> */}
+			<AuthProvider>
+				{/* <StackNavigator /> */}
+				{/* <DrawerNavigatorBasic /> */}
+				<DrawerNavigator />
+				{/* <BottomTabs/> */}
+			</AuthProvider>
 		</NavigationContainer>
 	);
 };

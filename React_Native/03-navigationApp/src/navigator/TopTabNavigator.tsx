@@ -5,15 +5,17 @@ import { AlbumsScreen, ChatScreen, ContactScreen } from '../screens';
 import { LogBox, Text } from 'react-native';
 import { colors } from '../theme/appTheme';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 LogBox.ignoreLogs(['Sending']);
 
 const Tab = createMaterialTopTabNavigator();
 
 export const TopTapNavigator = () => {
+	const insets = useSafeAreaInsets();
 	return (
 		<Tab.Navigator
-		
+			style={{ marginTop: insets.top }}
 			sceneContainerStyle={{
 				backgroundColor: 'white',
 			}}
@@ -30,19 +32,19 @@ export const TopTapNavigator = () => {
 				tabBarIcon: ({ color, focused }) => {
 					let iconName: string = '';
 
-						switch (route.name) {
-							case 'Tab1':
-								iconName = 'bandage-outline';
-								break;
-							case 'TopTapNavigator':
-								iconName = 'basketball-outline';
-								break;
-							case 'StackNavigator':
-								iconName = 'bookmarks-outline';
-								break;
-						}
+					switch (route.name) {
+						case 'Tab1':
+							iconName = 'bandage-outline';
+							break;
+						case 'TopTapNavigator':
+							iconName = 'basketball-outline';
+							break;
+						case 'StackNavigator':
+							iconName = 'bookmarks-outline';
+							break;
+					}
 
-						return <Ionicons name={iconName} size={20} color={color} />;
+					return <Ionicons name={iconName} size={20} color={color} />;
 				},
 			})}
 		>

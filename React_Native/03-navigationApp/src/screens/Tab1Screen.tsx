@@ -2,14 +2,16 @@ import { View, Text } from 'react-native';
 import React, { useEffect } from 'react';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { colors, styles } from '../theme/appTheme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const Tab1Screen = () => {
+	const insets = useSafeAreaInsets();
 	useEffect(() => {
 		console.log('Tab 1 Screen effect');
 	}, []);
 
 	return (
-		<View style={styles.globalMargin}>
+		<View style={{ ...styles.globalMargin, marginTop: insets.top }}>
 			<Text style={styles.title}>Icons</Text>
 
 			<View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
