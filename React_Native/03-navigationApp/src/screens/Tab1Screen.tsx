@@ -1,8 +1,8 @@
 import { View, Text } from 'react-native';
 import React, { useEffect } from 'react';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { colors, styles } from '../theme/appTheme';
+import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import TouchableIcon from '../components/TouchableIcon';
 
 const Tab1Screen = () => {
 	const insets = useSafeAreaInsets();
@@ -15,17 +15,13 @@ const Tab1Screen = () => {
 			<Text style={styles.title}>Icons</Text>
 
 			<View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-				<Ionicons name='airplane-outline' size={80} color={colors.primary} />
-				<Ionicons name='attach-outline' size={80} color={colors.primary} />
-				<Ionicons name='bonfire-outline' size={80} color={colors.primary} />
-				<Ionicons name='calculator-outline' size={80} color={colors.primary} />
-				<Ionicons
-					name='chatbubble-ellipses-outline'
-					size={80}
-					color={colors.primary}
-				/>
-				<Ionicons name='image-outline' size={80} color={colors.primary} />
-				<Ionicons name='leaf-outline' size={80} color={colors.primary} />
+				<TouchableIcon iconName='airplane-outline' />
+				<TouchableIcon iconName='attach-outline' />
+				<TouchableIcon iconName='bonfire-outline' />
+				<TouchableIcon iconName='calculator-outline' />
+				<TouchableIcon iconName='chatbubble-ellipses-outline' />
+				<TouchableIcon iconName='image-outline' />
+				<TouchableIcon iconName='leaf-outline' />
 			</View>
 		</View>
 	);
