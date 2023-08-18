@@ -15,13 +15,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    },
+			"supportsTablet": true,
+			"bundleIdentifier": "expo.modules.imagecolors.example"
+		},
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.anonymous.moviesApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
