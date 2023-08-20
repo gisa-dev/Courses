@@ -2,7 +2,6 @@ import { View, ActivityIndicator, Dimensions, ScrollView } from 'react-native';
 import React from 'react';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Carousel from 'react-native-snap-carousel';
-import ImageColors from 'react-native-image-colors';
 import { useMovies } from '../hooks/useMovies';
 import { MoviePoster } from '../components/MoviePoster';
 import HorizontalSlider from '../components/HorizontalSlider';
@@ -14,13 +13,6 @@ const HomeScreen = () => {
 	const { top } = useSafeAreaInsets();
 
 	const { nowPlaying, popular, topRated, upcoming, isLoading } = useMovies();
-
-	const getPosterColors = (index: number) => {
-		const movie = nowPlaying[index];
-		const uri = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-
-		ImageColors.getColors(uri, {}).then((colors) => console.log({ colors }));
-	};
 
 	if (isLoading) {
 		return (
