@@ -6,6 +6,9 @@ import HomeScreen from '../screens/HomeScreen';
 import Animation101Screen from '../screens/Animation101Screen';
 import Animation102Screen from '../screens/Animation102Screen';
 import SwitchScreen from '../screens/SwitchScreen';
+import AlertScreen from '../screens/AlertScreen';
+import TextInputScreen from '../screens/TextInputScreen';
+import PullToRefreshScreen from '../screens/PullToRefreshScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,7 +16,7 @@ export const NativeStack = () => {
 	return (
 		<Stack.Navigator
 			screenOptions={{
-				animation: 'fade_from_bottom',
+				animation: 'slide_from_right',
 				animationDuration: 500,
 				headerShown: false,
 			}}
@@ -22,6 +25,9 @@ export const NativeStack = () => {
 			<Stack.Screen name='Animation101' component={Animation101Screen} />
 			<Stack.Screen name='Animation102' component={Animation102Screen} />
 			<Stack.Screen name='Switch' component={SwitchScreen} />
+			<Stack.Screen name='Alert' component={AlertScreen} />
+			<Stack.Screen name='TextInput' component={TextInputScreen} />
+			<Stack.Screen name='PullToRefresh' component={PullToRefreshScreen} />
 		</Stack.Navigator>
 	);
 };

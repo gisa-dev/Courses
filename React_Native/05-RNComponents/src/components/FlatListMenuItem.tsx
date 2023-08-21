@@ -16,10 +16,10 @@ const FlatListMenuItem = ({ menuItem }: Props) => {
 		>
 			<View style={styles.container}>
 				<View style={styles.containerIconText}>
-					<Ionicons name={menuItem.icon} color='gray' size={23} />
+					<Ionicons name={menuItem.icon} color='#5856D6' size={23} />
 					<Text style={styles.itemText}>{menuItem.name}</Text>
 				</View>
-				<Ionicons name='chevron-forward-outline' color='gray' size={23} />
+				<Ionicons name='chevron-forward-outline' color='#5856D6' size={23} />
 			</View>
 		</TouchableOpacity>
 	);
