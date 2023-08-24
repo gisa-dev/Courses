@@ -1,7 +1,4 @@
-import {
-	NativeStackNavigationProp,
-	createNativeStackNavigator,
-} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../screens/HomeScreen';
 import Animation101Screen from '../screens/Animation101Screen';
 import Animation102Screen from '../screens/Animation102Screen';
@@ -9,6 +6,9 @@ import SwitchScreen from '../screens/SwitchScreen';
 import AlertScreen from '../screens/AlertScreen';
 import TextInputScreen from '../screens/TextInputScreen';
 import PullToRefreshScreen from '../screens/PullToRefreshScreen';
+import SectionListScreen from '../screens/SectionListScreen';
+import ModalScreen from '../screens/ModalScreen';
+import InfiniteScrollScreen from '../screens/InfiniteScrollScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +28,9 @@ export const NativeStack = () => {
 			<Stack.Screen name='Alert' component={AlertScreen} />
 			<Stack.Screen name='TextInput' component={TextInputScreen} />
 			<Stack.Screen name='PullToRefresh' component={PullToRefreshScreen} />
+			<Stack.Screen name='SectionList' component={SectionListScreen} />
+			<Stack.Screen name='Modal' component={ModalScreen} />
+			<Stack.Screen name='InfiniteScroll' component={InfiniteScrollScreen} />
 		</Stack.Navigator>
 	);
 };

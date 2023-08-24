@@ -31,4 +31,14 @@ export const menuItems: MenuItem[] = [
 		icon: 'reload-circle-outline',
 		component: 'PullToRefresh',
 	},
+	{
+		name: 'Modal',
+		icon: 'copy-outline',
+		component: 'Modal',
+	},
+	{
+		name: 'Infinite Scroll',
+		icon: 'download-outline',
+		component: 'InfiniteScroll',
+	},
 ];
