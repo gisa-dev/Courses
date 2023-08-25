@@ -1,6 +1,21 @@
-import { View, Text, ImageSourcePropType } from 'react-native';
+import { useRef, useState } from 'react';
+import {
+	View,
+	Text,
+	ImageSourcePropType,
+	Dimensions,
+	Image,
+	StyleSheet,
+	TouchableOpacity,
+	Animated,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import Carousel from 'react-native-reanimated-carousel';
+import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { Ionicons } from '@expo/vector-icons';
+import { useAnimation } from '../hooks/useAnimation';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+
+const windowWidth = Dimensions.get('window').width;
 
 interface Slide {
 	title: string;
@@ -26,14 +41,114 @@ const items: Slide[] = [
 	},
 ];
 
-const SlidesScreen = () => {
+interface Props extends NativeStackScreenProps<any, any> {}
+
+const SlidesScreen = ({ navigation }: Props) => {
+	const [activeDotIndex, setactiveDotIndex] = useState(0);
+	const { opacity, fadeIn, fadeOut } = useAnimation();
+	const isVisible = useRef(false);
+
+	const renderItem = (item: Slide) => {
+		return (
+			<View style={styles.carouselItem}>
+				<Image source={item.img} style={styles.carouselImage} />
+				<Text style={styles.carouselTitle}>{item.title}</Text>
+				<Text style={styles.carouselSubTitle}>{item.desc}</Text>
+			</View>
+		);
+	};
 	return (
-		<SafeAreaView style={{flex:1,paddingTop:50}}>
+		<SafeAreaView style={styles.container}>
 			<Carousel
-			
+				data={items}
+				renderItem={({ item }) => renderItem(item)}
+				itemWidth={windowWidth}
+				sliderWidth={windowWidth}
+				layout='default'
+				onSnapToItem={(index) => {
+					setactiveDotIndex(index);
+
+					if (index === 1) {
+						isVisible.current = false;
+						fadeOut();
+					}
+				}}
+				onEndReached={() => {
+					isVisible.current = true;
+					fadeIn();
+				}}
 			/>
+			<View
+				style={{
+					flexDirection: 'row',
+					justifyContent: 'space-between',
+					marginHorizontal: 20,
+					alignItems: 'center',
+				}}
+			>
+				<Pagination
+					dotsLength={items.length}
+					activeDotIndex={activeDotIndex}
+					dotStyle={{
+						width: 10,
+						height: 10,
+						borderRadius: 10,
+						backgroundColor: '#5856D6',
+					}}
+				/>
+
+				<Animated.View style={{ opacity }}>
+					<TouchableOpacity
+						activeOpacity={0.8}
+						style={{
+							flexDirection: 'row',
+							justifyContent: 'center',
+							alignItems: 'center',
+							backgroundColor: '#5856D6',
+							width: 140,
+							height: 50,
+							borderRadius: 15,
+						}}
+						onPress={() => {
+							if (isVisible.current) {
+								navigation.navigate('Home');
+							}
+						}}
+					>
+						<Text style={{ color: 'white', fontSize: 25 }}>Enter</Text>
+						<Ionicons name='chevron-forward-outline' size={30} color='white' />
+					</TouchableOpacity>
+				</Animated.View>
+			</View>
 		</SafeAreaView>
 	);
 };
 
 export default SlidesScreen;
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		backgroundColor: 'white',
+	},
+	carouselItem: {
+		flex: 1,
+		backgroundColor: 'white',
+		borderRadius: 5,
+		padding: 5,
+		justifyContent: 'center',
+	},
+	carouselImage: {
+		width: 350,
+		height: 400,
+		resizeMode: 'center',
+	},
+	carouselTitle: {
+		fontSize: 30,
+		fontWeight: 'bold',
+		color: '#5856D6',
+	},
+	carouselSubTitle: {
+		fontSize: 16,
+	},
+});
