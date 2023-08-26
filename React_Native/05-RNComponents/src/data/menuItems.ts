@@ -32,6 +32,11 @@ export const menuItems: MenuItem[] = [
 		component: 'PullToRefresh',
 	},
 	{
+		name: 'Section List',
+		icon: 'list-outline',
+		component: 'SectionList',
+	},
+	{
 		name: 'Modal',
 		icon: 'copy-outline',
 		component: 'Modal',
@@ -45,5 +50,10 @@ export const menuItems: MenuItem[] = [
 		name: 'Slides',
 		icon: 'flower-outline',
 		component: 'Slides',
+	},
+	{
+		name: 'Theme',
+		icon: 'flask-outline',
+		component: 'Theme',
 	},
 ];

@@ -14,6 +14,7 @@ import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { Ionicons } from '@expo/vector-icons';
 import { useAnimation } from '../hooks/useAnimation';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -44,21 +45,30 @@ const items: Slide[] = [
 interface Props extends NativeStackScreenProps<any, any> {}
 
 const SlidesScreen = ({ navigation }: Props) => {
+	const {
+		theme: { colors },
+	} = useThemeContext();
 	const [activeDotIndex, setactiveDotIndex] = useState(0);
 	const { opacity, fadeIn, fadeOut } = useAnimation();
 	const isVisible = useRef(false);
 
 	const renderItem = (item: Slide) => {
 		return (
-			<View style={styles.carouselItem}>
+			<View
+				style={{ ...styles.carouselItem, backgroundColor: colors.background }}
+			>
 				<Image source={item.img} style={styles.carouselImage} />
-				<Text style={styles.carouselTitle}>{item.title}</Text>
-				<Text style={styles.carouselSubTitle}>{item.desc}</Text>
+				<Text style={{ ...styles.carouselTitle, color: colors.primary }}>
+					{item.title}
+				</Text>
+				<Text style={{ ...styles.carouselSubTitle, color: colors.text }}>
+					{item.desc}
+				</Text>
 			</View>
 		);
 	};
 	return (
-		<SafeAreaView style={styles.container}>
+		<SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
 			<Carousel
 				data={items}
 				renderItem={({ item }) => renderItem(item)}
@@ -93,7 +103,7 @@ const SlidesScreen = ({ navigation }: Props) => {
 						width: 10,
 						height: 10,
 						borderRadius: 10,
-						backgroundColor: '#5856D6',
+						backgroundColor: colors.primary,
 					}}
 				/>
 
@@ -104,7 +114,7 @@ const SlidesScreen = ({ navigation }: Props) => {
 							flexDirection: 'row',
 							justifyContent: 'center',
 							alignItems: 'center',
-							backgroundColor: '#5856D6',
+							backgroundColor: colors.primary,
 							width: 140,
 							height: 50,
 							borderRadius: 15,
@@ -127,13 +137,8 @@ const SlidesScreen = ({ navigation }: Props) => {
 export default SlidesScreen;
 
 const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-		backgroundColor: 'white',
-	},
 	carouselItem: {
 		flex: 1,
-		backgroundColor: 'white',
 		borderRadius: 5,
 		padding: 5,
 		justifyContent: 'center',
@@ -146,7 +151,6 @@ const styles = StyleSheet.create({
 	carouselTitle: {
 		fontSize: 30,
 		fontWeight: 'bold',
-		color: '#5856D6',
 	},
 	carouselSubTitle: {
 		fontSize: 16,

@@ -2,6 +2,7 @@ import { View, Text, SectionList } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
 import FlatListItemSeparator from '../components/FlatListItemSeparator';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 interface Casas {
 	casa: string;
@@ -126,8 +127,17 @@ const casas: Casas[] = [
 ];
 
 const SectionListScreen = () => {
+	const {
+		theme: { colors },
+	} = useThemeContext();
 	return (
-		<View style={{ ...styles.globalMargin, flex: 1, backgroundColor: 'white' }}>
+		<View
+			style={{
+				...styles.globalMargin,
+				flex: 1,
+				backgroundColor: colors.background,
+			}}
+		>
 			<SectionList
 				sections={casas}
 				ListHeaderComponent={() => <HeaderTitle title='Section List' />}
@@ -140,9 +150,11 @@ const SectionListScreen = () => {
 				ItemSeparatorComponent={() => <FlatListItemSeparator />}
 				stickySectionHeadersEnabled
 				keyExtractor={(item, index) => item + index}
-				renderItem={({ item }) => <Text>{item}</Text>}
+				renderItem={({ item }) => (
+					<Text style={{ color: colors.text }}>{item}</Text>
+				)}
 				renderSectionHeader={({ section }) => (
-					<View style={{ backgroundColor: 'white' }}>
+					<View style={{ backgroundColor: colors.background }}>
 						<HeaderTitle title={section.casa} />
 					</View>
 				)}

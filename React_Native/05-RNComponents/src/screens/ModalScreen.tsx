@@ -2,8 +2,12 @@ import { View, Text, Button, Modal } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
 import { useState } from 'react';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 const ModalScreen = () => {
+	const {
+		theme: { colors },
+	} = useThemeContext();
 	const [isVisible, setIsVisible] = useState(false);
 
 	return (
@@ -24,7 +28,7 @@ const ModalScreen = () => {
 				>
 					<View
 						style={{
-							backgroundColor: 'white',
+							backgroundColor: colors.background,
 							borderRadius: 20,
 							width: 200,
 							height: 200,
@@ -38,8 +42,19 @@ const ModalScreen = () => {
 							elevation: 10,
 						}}
 					>
-						<Text style={{ fontSize: 20, fontWeight: 'bold' }}>Modal</Text>
-						<Text style={{ fontSize: 16, fontWeight: '300', marginBottom: 20 }}>
+						<Text
+							style={{ fontSize: 20, fontWeight: 'bold', color: colors.text }}
+						>
+							Modal
+						</Text>
+						<Text
+							style={{
+								fontSize: 16,
+								fontWeight: '300',
+								marginBottom: 20,
+								color: colors.text,
+							}}
+						>
 							asdasdsadasdadasd
 						</Text>
 						<Button title='close modal' onPress={() => setIsVisible(false)} />

@@ -3,8 +3,12 @@ import HeaderTitle from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
 import { useState } from 'react';
 import FadeInImage from '../components/FadeInImage';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 const InfiniteScrollScreen = () => {
+	const {
+		theme: { colors },
+	} = useThemeContext();
 	const [numbers, setNumbers] = useState([0, 1, 2, 3, 4, 5]);
 
 	const loadMore = () => {
@@ -49,7 +53,7 @@ const InfiniteScrollScreen = () => {
 							alignItems: 'center',
 						}}
 					>
-						<ActivityIndicator size={20} color='#5856D6' />
+						<ActivityIndicator size={50} color={colors.primary} />
 					</View>
 				)}
 			/>

@@ -3,8 +3,12 @@ import { useState } from 'react';
 import HeaderTitle from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 const PullToRefreshScreen = () => {
+	const {
+		theme: { colors },
+	} = useThemeContext();
 	const { top } = useSafeAreaInsets();
 	const [refreshing, setRefreshing] = useState(false);
 	const [data, setData] = useState<string>();
@@ -28,12 +32,9 @@ const PullToRefreshScreen = () => {
 					refreshing={refreshing}
 					onRefresh={onRefresh}
 					progressViewOffset={10}
-					progressBackgroundColor='#5856D6'
-					colors={['red', 'green', 'white']}
-					// style={{
-					// 	backgroundColor: '#5856D6',
-					// }}
-					// tintColor='white'
+					progressBackgroundColor={colors.primary}
+					colors={[colors.background]}
+					tintColor={colors.text}
 				/>
 			}
 		>

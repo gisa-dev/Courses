@@ -1,11 +1,15 @@
-import { View, Text, Button, Alert } from 'react-native';
+import { View, Text, Button, Alert, Platform } from 'react-native';
 import { useState } from 'react';
 import Dialog from 'react-native-dialog';
 
 import HeaderTitle from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 const AlertScreen = () => {
+	const {
+		theme: { currentTheme, colors },
+	} = useThemeContext();
 	const [visible, setVisible] = useState(false);
 	const showAlert = () => {
 		Alert.alert(
@@ -28,6 +32,7 @@ const AlertScreen = () => {
 			],
 			{
 				cancelable: true,
+				userInterfaceStyle: currentTheme,
 				onDismiss: () => console.log('onDismiss Pressed'),
 			},
 		);
@@ -63,12 +68,25 @@ const AlertScreen = () => {
 				<View style={{ marginVertical: 10 }} />
 				<Button title='Show Prompt' onPress={showDialog} />
 
-				<Dialog.Container visible={visible} contentStyle={{borderRadius:20}} >
+				<Dialog.Container
+					visible={visible}
+					contentStyle={{
+						borderRadius: 20,
+					}}
+				>
 					<Dialog.Title>Hello</Dialog.Title>
 					<Dialog.Description>This message of the prompt</Dialog.Description>
 					<Dialog.Input placeholder='Enter text' />
-					<Dialog.Button label='Cancel' onPress={handleCancel} />
-					<Dialog.Button label='OK' onPress={handleOK} />
+					<Dialog.Button
+						style={{ color: colors.primary }}
+						label='Cancel'
+						onPress={handleCancel}
+					/>
+					<Dialog.Button
+						style={{ color: colors.primary }}
+						label='OK'
+						onPress={handleOK}
+					/>
 				</Dialog.Container>
 			</View>
 		</View>

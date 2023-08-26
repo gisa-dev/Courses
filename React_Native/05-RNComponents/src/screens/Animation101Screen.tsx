@@ -1,7 +1,11 @@
 import { Animated, Button, StyleSheet, Text, View } from 'react-native';
 import { useAnimation } from '../hooks/useAnimation';
+import { useThemeContext } from '../context/theme/useThemeContext';
 
 const Animation101Screen = () => {
+	const {
+		theme: { colors },
+	} = useThemeContext();
 	const { opacity, position, fadeIn, fadeOut, movingPosition } = useAnimation();
 
 	return (
@@ -9,6 +13,7 @@ const Animation101Screen = () => {
 			<Animated.View
 				style={{
 					...styles.purpleBox,
+					backgroundColor: colors.primary,
 					opacity: opacity,
 					transform: [
 						{
@@ -47,7 +52,6 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	purpleBox: {
-		backgroundColor: '#5856D6',
 		width: 150,
 		height: 150,
 		borderRadius: 20,
