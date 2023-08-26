@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity } from 'react-native';
 import HeaderTitle from '../components/HeaderTitle';
-import { styles } from '../theme/appTheme';
+import { darkTheme, lightTheme, styles } from '../theme/appTheme';
 import { useThemeContext } from '../context/theme/useThemeContext';
 
 const ChangeThemeScreen = () => {
@@ -21,7 +21,7 @@ const ChangeThemeScreen = () => {
 				}}
 			>
 				<TouchableOpacity
-					onPress={setLightTheme}
+					onPress={() => setLightTheme(lightTheme)}
 					activeOpacity={0.8}
 					style={{
 						backgroundColor: colors.primary,
@@ -42,7 +42,7 @@ const ChangeThemeScreen = () => {
 					</Text>
 				</TouchableOpacity>
 				<TouchableOpacity
-					onPress={setDarkTheme}
+					onPress={() => setDarkTheme(darkTheme)}
 					activeOpacity={0.8}
 					style={{
 						backgroundColor: colors.primary,

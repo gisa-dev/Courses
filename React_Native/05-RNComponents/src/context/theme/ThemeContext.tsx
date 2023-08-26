@@ -5,8 +5,8 @@ import { useColorScheme } from 'react-native';
 
 interface ThemeContextProps {
 	theme: ThemeState;
-	setDarkTheme: () => void;
-	setLightTheme: () => void;
+	setDarkTheme: (theme: ThemeState) => void;
+	setLightTheme: (theme: ThemeState) => void;
 }
 
 export const ThemeContext = createContext({} as ThemeContextProps);
@@ -21,15 +21,15 @@ export const ThemeProvider = ({ children }: any) => {
 	);
 
 	useEffect(() => {
-		colorScheme === 'light' ? setLightTheme() : setDarkTheme();
+		colorScheme === 'light' ? setLightTheme(lightTheme) : setDarkTheme(darkTheme);
 	}, [colorScheme]);
 
-	const setDarkTheme = () => {
-		dispatch({ type: 'set-dark-theme' });
+	const setDarkTheme = (theme: ThemeState) => {
+		dispatch({ type: 'set-dark-theme', payload: theme });
 		console.log('setDarkTheme');
 	};
-	const setLightTheme = () => {
-		dispatch({ type: 'set-light-theme' });
+	const setLightTheme = (theme: ThemeState) => {
+		dispatch({ type: 'set-light-theme', payload: theme });
 		console.log('setLightTheme');
 	};
 
