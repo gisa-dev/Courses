@@ -13,8 +13,8 @@ export const globalStyles = StyleSheet.create({
 		right: -100,
 		opacity: 0.2,
 	},
-  title: {
-    fontSize:35,
-    fontWeight: 'bold',
-  }
+	title: {
+		fontSize: 35,
+		fontWeight: 'bold',
+	},
 });

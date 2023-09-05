@@ -23,9 +23,9 @@ const HomeScreen = () => {
 				onEndReachedThreshold={0.4}
 				showsVerticalScrollIndicator={false}
 				columnWrapperStyle={{
-					justifyContent:'center',
-					alignItems:'center',
-					gap:15
+					justifyContent: 'center',
+					alignItems: 'center',
+					gap: 15,
 				}}
 				ListHeaderComponent={
 					<Text
@@ -34,7 +34,7 @@ const HomeScreen = () => {
 							...globalStyles.globalMargin,
 							top: top + 20,
 							marginBottom: 50,
-							paddingBottom:10
+							paddingBottom: 10,
 						}}
 					>
 						Pokedex

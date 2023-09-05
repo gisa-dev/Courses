@@ -1,12 +1,12 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { MyStack } from './src/navigator/Stack';
+import { Tabs } from './src/navigator/Tabs';
 
 const App = () => {
 	return (
 		<NavigationContainer>
 			<StatusBar style='auto' />
-			<MyStack />
+			<Tabs/>
 		</NavigationContainer>
 	);
 };
