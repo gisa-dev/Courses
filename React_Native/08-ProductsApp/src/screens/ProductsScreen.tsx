@@ -4,8 +4,9 @@ import {
 	View,
 	FlatList,
 	TouchableOpacity,
+	RefreshControl,
 } from 'react-native';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useProductsContext } from '../context/products/useProductsContext';
 import { ProductsStackParams } from '../navigator/ProductsStack';
@@ -15,6 +16,8 @@ interface Props
 	extends StackScreenProps<ProductsStackParams, 'ProductsScreen'> {}
 
 const ProductsScreen = ({ navigation }: Props) => {
+	const [refreshing, setRefreshing] = useState(false);
+	const { products, loadProducts } = useProductsContext();
 	useEffect(() => {
 		navigation.setOptions({
 			headerRight: () => (
@@ -41,6 +44,12 @@ const ProductsScreen = ({ navigation }: Props) => {
 		});
 	}, []);
 
+	const onRefresh = async () => {
+		setRefreshing(true);
+		await loadProducts();
+		setRefreshing(false);
+	};
+
 	const goToProduct = (item: Producto) => {
 		navigation.navigate('ProductScreen', {
 			id: item._id,
@@ -48,8 +57,6 @@ const ProductsScreen = ({ navigation }: Props) => {
 		});
 	};
 
-	const { products } = useProductsContext();
-	console.log(products);
 	return (
 		<View style={{ flex: 1, marginHorizontal: 10 }}>
 			<FlatList
@@ -64,6 +71,16 @@ const ProductsScreen = ({ navigation }: Props) => {
 					</TouchableOpacity>
 				)}
 				ItemSeparatorComponent={() => <View style={styles.itemSeparator} />}
+				refreshControl={
+					<RefreshControl
+						refreshing={refreshing}
+						onRefresh={onRefresh}
+						progressViewOffset={10}
+						progressBackgroundColor='#FDFDFD'
+						colors={['green', 'red', 'yellow']}
+						tintColor='blue'
+					/>
+				}
 			/>
 		</View>
 	);

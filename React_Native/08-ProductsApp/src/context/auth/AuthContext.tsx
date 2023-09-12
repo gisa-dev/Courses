@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }: any) => {
 		const resp = await cafeApi.get('/auth');
 
 		await AsyncStorage.setItem('token', resp.data.token);
+
 		console.log(resp.data.token);
 
 		dispatch({

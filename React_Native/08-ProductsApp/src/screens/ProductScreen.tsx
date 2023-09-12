@@ -5,42 +5,104 @@ import {
 	ScrollView,
 	TextInput,
 	TouchableOpacity,
+	Image,
+	Alert,
 } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Feather } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
 import { ProductsStackParams } from '../navigator/ProductsStack';
 import { useCategories } from '../hooks/useCategories';
+import { useForm } from '../hooks/useForm';
+import { useProductsContext } from '../context/products/useProductsContext';
 
 interface Props
 	extends StackScreenProps<ProductsStackParams, 'ProductScreen'> {}
-const ProductScreen = ({ route, navigation }: Props) => {
-	const { isLoading, categories } = useCategories();
-	const [selectedLanguage, setSelectedLanguage] = useState();
-	const { id, name = '' } = route.params;
 
-	const headerTitle = name ? name : 'New Product';
+const ProductScreen = ({ route, navigation }: Props) => {
+	const { id = '', name = '' } = route.params;
+	const { loadProductById, addProducts, updateProducts, deleteProducts } =
+		useProductsContext();
+	const { isLoading, categories } = useCategories();
+	const { _id, categoriaId, nombre, img, form, onChange, setFormValue } =
+		useForm({
+			_id: id,
+			categoriaId: '',
+			nombre: name,
+			img: '',
+		});
 
 	useEffect(() => {
 		navigation.setOptions({
-			title: headerTitle,
+			title: nombre ? nombre : 'Product Name',
 		});
+	}, [nombre]);
+
+	useEffect(() => {
+		loadProduct();
 	}, []);
+
+	const loadProduct = async () => {
+		if (id.length === 0) return;
+
+		const product = await loadProductById(id);
+		setFormValue({
+			_id: id,
+			categoriaId: product.categoria._id,
+			img: product.img || '',
+			nombre,
+		});
+	};
+
+	const saveOrUpdate = async () => {
+		if (id.length > 0) {
+			updateProducts(categoriaId, nombre, id);
+		} else {
+			const tempCategoriaId = categoriaId || categories[0]._id;
+			const newProduct = await addProducts(tempCategoriaId, nombre);
+			onChange(newProduct!._id, '_id');
+		}
+	};
+
+	const removeProduct = () => {
+		Alert.alert(
+			'Delete Product',
+			'are you sure you want to delete this product?',
+			[
+				{
+					text: 'Cancel',
+					style: 'cancel',
+				},
+				{
+					text: 'Delete',
+					onPress: () => {
+						deleteProducts(_id);
+						alert('Product deleted successfully');
+						navigation.pop();
+					},
+				},
+			],
+		);
+	};
 
 	return (
 		<View style={styles.container}>
-			<ScrollView>
+			<ScrollView showsVerticalScrollIndicator={false}>
 				<Text style={styles.label}>Name of Product:</Text>
-				<TextInput placeholder='Product' style={styles.textInput} />
+				<TextInput
+					placeholder='Product'
+					style={styles.textInput}
+					value={nombre}
+					onChangeText={(value) => onChange(value, 'nombre')}
+				/>
+
 				{/* Picker */}
 				<Text style={styles.label}>Category:</Text>
 
 				<Picker
-					selectedValue={selectedLanguage}
-					onValueChange={(itemValue, itemIndex) =>
-						setSelectedLanguage(itemValue)
-					}
+					selectedValue={categoriaId}
+					onValueChange={(value) => onChange(value, 'categoriaId')}
 				>
 					{categories.map((category) => (
 						<Picker.Item
@@ -52,21 +114,50 @@ const ProductScreen = ({ route, navigation }: Props) => {
 				</Picker>
 
 				<View style={styles.buttonContainer}>
-					<TouchableOpacity activeOpacity={0.8} style={styles.button}>
+					<TouchableOpacity
+						activeOpacity={0.8}
+						style={styles.button}
+						onPress={saveOrUpdate}
+					>
 						<Text style={styles.buttonText}>Save</Text>
 						<Feather name='save' size={25} color='white' />
 					</TouchableOpacity>
-				</View>
-				<View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-					<TouchableOpacity activeOpacity={0.8} style={styles.button}>
-						<Text style={styles.buttonText}>Camera</Text>
-						<Feather name='camera' size={25} color='white' />
+					<TouchableOpacity
+						activeOpacity={0.8}
+						style={styles.button}
+						onPress={removeProduct}
+						disabled={!_id}
+					>
+						<Text style={styles.buttonText}>Delete</Text>
+						<Feather name='trash-2' size={25} color='white' />
 					</TouchableOpacity>
-					<TouchableOpacity activeOpacity={0.8} style={styles.button}>
-						<Text style={styles.buttonText}>Galery</Text>
-						<Feather name='image' size={25} color='white' />
-					</TouchableOpacity>
 				</View>
+
+				{_id.length > 0 && (
+					<View
+						style={{
+							flexDirection: 'row',
+							justifyContent: 'space-between',
+							marginBottom: 20,
+						}}
+					>
+						<TouchableOpacity activeOpacity={0.8} style={styles.button}>
+							<Text style={styles.buttonText}>Camera</Text>
+							<Feather name='camera' size={25} color='white' />
+						</TouchableOpacity>
+						<TouchableOpacity activeOpacity={0.8} style={styles.button}>
+							<Text style={styles.buttonText}>Galery</Text>
+							<Feather name='image' size={25} color='white' />
+						</TouchableOpacity>
+					</View>
+				)}
+
+				{img.length > 0 && (
+					<Image
+						source={{ uri: img }}
+						style={{ width: '100%', height: 300, borderRadius: 20 }}
+					/>
+				)}
 			</ScrollView>
 		</View>
 	);
@@ -95,8 +186,9 @@ const styles = StyleSheet.create({
 	},
 	buttonContainer: {
 		marginVertical: 10,
-		justifyContent: 'center',
+		justifyContent: 'space-between',
 		alignItems: 'center',
+		flexDirection: 'row',
 	},
 	button: {
 		backgroundColor: '#252525',
