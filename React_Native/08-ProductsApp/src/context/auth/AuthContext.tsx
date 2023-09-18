@@ -32,6 +32,7 @@ export const AuthContext = createContext({} as AuthContextProps);
 export const AuthProvider = ({ children }: any) => {
 	const [state, dispatch] = useReducer(authReducer, AuthInicialState);
 
+
 	const checkToken = async () => {
 		const token = await AsyncStorage.getItem('token');
 

@@ -8,10 +8,17 @@ import {
 	Image,
 	Alert,
 } from 'react-native';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { StackScreenProps } from '@react-navigation/stack';
 import { Feather } from '@expo/vector-icons';
 import { Picker } from '@react-native-picker/picker';
+import {
+	launchCameraAsync,
+	launchImageLibraryAsync,
+	MediaTypeOptions,
+	requestCameraPermissionsAsync,
+	requestMediaLibraryPermissionsAsync,
+} from 'expo-image-picker';
 import { ProductsStackParams } from '../navigator/ProductsStack';
 import { useCategories } from '../hooks/useCategories';
 import { useForm } from '../hooks/useForm';
@@ -22,9 +29,19 @@ interface Props
 
 const ProductScreen = ({ route, navigation }: Props) => {
 	const { id = '', name = '' } = route.params;
-	const { loadProductById, addProducts, updateProducts, deleteProducts } =
-		useProductsContext();
+
+	const [tempUri, setTempUri] = useState<string>('');
+
+	const {
+		loadProductById,
+		addProducts,
+		updateProducts,
+		deleteProducts,
+		uploadImage,
+	} = useProductsContext();
+
 	const { isLoading, categories } = useCategories();
+
 	const { _id, categoriaId, nombre, img, form, onChange, setFormValue } =
 		useForm({
 			_id: id,
@@ -32,6 +49,13 @@ const ProductScreen = ({ route, navigation }: Props) => {
 			nombre: name,
 			img: '',
 		});
+
+	useEffect(() => {
+		(async () => {
+			await requestCameraPermissionsAsync();
+			await requestMediaLibraryPermissionsAsync();
+		})();
+	}, []);
 
 	useEffect(() => {
 		navigation.setOptions({
@@ -84,6 +108,19 @@ const ProductScreen = ({ route, navigation }: Props) => {
 				},
 			],
 		);
+	};
+
+	const takePhoto = async () => {
+		const resp = await launchCameraAsync({
+			mediaTypes: MediaTypeOptions.Images,
+			quality: 0.5,
+		});
+
+		if (resp.canceled) return;
+		if (!resp.assets[0].uri) return;
+
+		setTempUri(resp.assets[0].uri);
+		uploadImage(resp, _id)
 	};
 
 	return (
@@ -142,7 +179,9 @@ const ProductScreen = ({ route, navigation }: Props) => {
 						}}
 					>
 						<TouchableOpacity activeOpacity={0.8} style={styles.button}>
-							<Text style={styles.buttonText}>Camera</Text>
+							<Text style={styles.buttonText} onPress={takePhoto}>
+								Camera
+							</Text>
 							<Feather name='camera' size={25} color='white' />
 						</TouchableOpacity>
 						<TouchableOpacity activeOpacity={0.8} style={styles.button}>
@@ -152,9 +191,16 @@ const ProductScreen = ({ route, navigation }: Props) => {
 					</View>
 				)}
 
-				{img.length > 0 && (
+				{img.length > 0 && !tempUri && (
 					<Image
 						source={{ uri: img }}
+						style={{ width: '100%', height: 300, borderRadius: 20 }}
+					/>
+				)}
+
+				{tempUri && (
+					<Image
+						source={{ uri: tempUri }}
 						style={{ width: '100%', height: 300, borderRadius: 20 }}
 					/>
 				)}
