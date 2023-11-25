@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!--Codificacion-->
+		<meta charset="uft-8" />
+		<!-- para decirle que todo el ancho del dispositivo -->
+		<meta name="viewport" content="width=device-width" />
+		<!-- para in dicarle a google que enlaces tiene que seguir -->
+		<meta name="robots" content="index, follow" />
+
+		<!-- para colocar un color en la barra superior del navegador -->
+		<meta name="theme-color" content="#09f" />
+
+		<!-- es la descripcion de la pagina -->
+		<meta
+			name="description"
+			content="Porfolio de midudev, 15 años de experiencia como ingeniero de software"
+		/>
+
+		<!-- OPEN GRAPH - como sale la miniatura cuando se comparte en una red social -->
+
+		<!-- para colocar el titulo de la miniatura si no se le coloca titulo copia el titulo de la pagina web -->
+		<meta property="og:title" content="Porfolio de un ingeniero de software" />
+		<!-- para colocar la descripcion de la miniatura -->
+		<meta
+			property="og:description"
+			content="Porfolio de midudev, 15 años de experiencia como ingeniero de software"
+		/>
+		<!-- para colocar la imagen de la miniatura -->
+		<meta property="og:image" content="/images/yo.jpg" />
+
+		<!-- para colocar el texto alternativo de la imagen -->
+		<meta
+			property="og:image:alt"
+			content="Una fotografia de Miguel Angel Duran soriendo y mirando a camara con las manos cruzadas"
+		/>
+
+		<!-- para indicar a google que la pagina tiene contenido en otro idioma -->
+		<link rel="alternate" href="https://midu.dev/en" hreflang="en-GB" />
+		<!-- para indicarle a google cual es la pagina principal -->
+		<link rel="canonical" href="https://midu.dev" />
+		<!-- para definir el icono que aparece al lado del titulo de la pagina  -->
+		<link rel="icon" type="image/jpg" href="/images/yo.jpg" />
+		<title>Porfolio de midudev</title>
+	</head>
+	<body>
+		<header>
+			<h1>Portfolio de @midudev 💻</h1>
+
+			<!-- <iframe
+				style="width: 100%; aspect-ratio: 16/9;"
+				src="https://www.youtube.com/embed/EytuGMib1Oc?si=z1TLcqtnv0OmMA4V"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+			></iframe> -->
+			<nav>
+				<!-- enlaces internos -->
+				<a href="#experiencia">Experiencia</a>
+				<a href="#proyectos">Proyectos</a>
+				<!-- enlaces externos -->
+				<a href="https://twitch.tv/midudev" target="_blank" rel="noreferrer"
+					>Twitch</a
+				>
+			</nav>
+		</header>
+		<!-- <audio
+			controls
+			src="https://filesamples.com/samples/audio/mp3/Symphony%20No.6%20(1st%20movement).mp3"
+		></audio>
+		<video
+			autoplay
+			muted
+			loop
+			src="https://filesamples.com/samples/video/mp4/sample_960x400_ocean_with_audio.mp4"
+		></video> -->
+
+		<!-- cada vez que hay un elemento con un id se genera en el window una propiedad que puedes acceder directamente a ese elemento -->
+		<dialog id="dialog">
+			<h1>Sabias que puedes abrir una modal asi?</h1>
+			<p>Y es totalmente nativo!</p>
+			<button id="hide">Cerrar Modal</button>
+		</dialog>
+		<button id="show">Ver mas informacion</button>
+		<script>
+			window.show.addEventListener('click', () => {
+				window.dialog.showModal();
+			});
+
+			window.hide.addEventListener('click', () => {
+				window.dialog.close();
+			})
+		</script>
+
+		<main>
+			<p>
+				+15 años de experiencia como <strong>Ingeniero de Software</strong> .
+				Creador y divulgador de programacion
+			</p>
+
+			<h2 id="experiencia">Experiencia</h2>
+
+			<ul>
+				<li class="list-item">Adevinta - 2022</li>
+				<li class="list-item">Hubii - 2020</li>
+				<li class="list-item">Nacencia - 2015</li>
+			</ul>
+
+			<a download href="/images/yo.jpg">
+				<img
+					id="photo-image"
+					src="/images/yo.jpg"
+					alt="Una fotografia de Miguel Angel Duran soriendo y mirando a camara con las manos cruzadas"
+					title="Foto de midudev"
+					width="200"
+					height="200"
+				/>
+			</a>
+
+			<h2 id="proyectos">Proyectos realizados</h2>
+
+			<aside>
+				<header>
+					<h3>Mis tecnologias favoritas</h3>
+				</header>
+				<ol type="1" reversed start="10">
+					<li>HTML</li>
+					<li>CSS</li>
+					<li value="5">JavaScript</li>
+					<li>Node.js</li>
+				</ol>
+			</aside>
+
+			<button>Haz clic aqui</button>
+
+			<section>
+				<article>
+					<header>
+						<h4>La pagina de Tesla</h4>
+						<img
+							loading="lazy"
+							style="width: 100%; aspect-ratio: 638/317"
+							src="/images/tesla.png"
+							alt="Captura de pantalla de la pagina web de Tesla"
+						/>
+					</header>
+					<p>Elon Musk me llamo e hice en una tarde esta pagina desde cero</p>
+					<footer>
+						<small>Tecnologias utilizadas: HTML, CSS, JavaScript</small>
+					</footer>
+				</article>
+				<article>
+					<header><h4>Aplicacion Web de E-commerce</h4></header>
+					<p>
+						Creacion de una plataforma de comercio electronico para una tienda
+						local.
+					</p>
+					<footer>
+						<small>Tecnologias utilizadas: React, Node.js, MongoDB</small>
+					</footer>
+				</article>
+				<article>
+					<header><h4>Aplicacion Movil de Rastreo de Fitness</h4></header>
+					<p>
+						Desarrollo de una aplicacion movil para rastrear actividades fisicas
+						y habitos de alimentacion.
+					</p>
+					<footer>
+						<small>Tecnologias utilizadas: Flutter, Firebase</small>
+					</footer>
+				</article>
+			</section>
+
+			<section>
+				<h2>Preguntas frecuentes</h2>
+				<details>
+					<summary>Que estudios tienes?</summary>
+					<p>
+						Estudie en la universidad de Vilanova una Ingenieria de Informatica
+						durante 5 años
+					</p>
+				</details>
+				<details>
+					<summary>Cuales son tus Hobbies?</summary>
+					<p>Me gusta mucho el deporte, sobre todo el futbol y el baloncesto</p>
+				</details>
+				<details>
+					<summary>Cual es tu leguaje favorito?</summary>
+					<p>
+						Me encanta JavaScript, es un lenguaje muy versatil y con el que se
+						pueden hacer muchas cosas
+					</p>
+				</details>
+			</section>
+
+			<section>
+				<h2>Formulario de contacto</h2>
+				<form action="/" method="post">
+					<fieldset>
+						<legend>Informacion personal</legend>
+
+						<div>
+							<label
+								>Nombre:
+
+								<input
+									type="text"
+									name="name"
+									placeholder="Miguel Angel Duran"
+									required
+								/>
+							</label>
+						</div>
+						<label
+							>Email
+
+							<input
+								type="email"
+								name="email"
+								placeholder="midudev@gmail.com"
+								required
+							/>
+						</label>
+					</fieldset>
+					<fieldset>
+						<legend>Informacion adicional</legend>
+						<label
+							>Telefono:
+
+							<input
+								type="tel"
+								name="phone"
+								placeholder="+3458888889"
+								required
+								pattern="[0-9]{9}"
+							/>
+						</label>
+					</fieldset>
+					<fieldset>
+						<legend>Otros</legend>
+						<div>
+							<label for="why">Por que quieres contactar?</label>
+							<select name="why" id="why">
+								<option value="1">Trabajo</option>
+								<option value="2">Duda</option>
+								<option value="3">Mas informacion</option>
+							</select>
+						</div>
+
+						<div>
+							<label for="terms">Aceptas los terminos</label>
+							<input type="checkbox" id="terms" name="terms" required />
+						</div>
+
+						<div>
+							<datalist id="languages">
+								<option value="JavaScript"></option>
+								<option value="Python"></option>
+								<option value="Java"></option>
+								<option value="C#"></option>
+							</datalist>
+							<label
+								>Con que lenguaje quieres que te ayude?
+								<input list="languages" name="languages" />
+							</label>
+						</div>
+					</fieldset>
+					<!-- los botones dentro de un formulario por defectos son submit -->
+					<button>Enviar contacto</button>
+				</form>
+			</section>
+		</main>
+
+		<footer>
+			Copyright © 2023 - El portfolio mas bello del mundo.
+			<a href="mailto:miduga@gmail.com">Enviame un correo</a>
+			<a href="tel:+346888888889">Llamar por telefono</a>
+		</footer>
+	</body>
+</html>
