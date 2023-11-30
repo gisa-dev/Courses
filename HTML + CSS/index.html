@@ -5,7 +5,7 @@
 		<meta charset="uft-8" />
 		<!-- para decirle que todo el ancho del dispositivo -->
 		<meta name="viewport" content="width=device-width" />
-		<!-- para in dicarle a google que enlaces tiene que seguir -->
+		<!-- para indicarle a google que enlaces tiene que seguir -->
 		<meta name="robots" content="index, follow" />
 
 		<!-- para colocar un color en la barra superior del navegador -->
@@ -42,6 +42,49 @@
 		<!-- para definir el icono que aparece al lado del titulo de la pagina  -->
 		<link rel="icon" type="image/jpg" href="/images/yo.jpg" />
 		<title>Porfolio de midudev</title>
+
+		<style>
+			h1 {
+				/* color: rgba(0, 0, 0, 50%); legacy */
+				/* color: rgb(0 0 0 / 50%); moderno */
+				/* color: hsl(60, 100%, 100%); */
+				/* color: oklch(348 83% 44% / 50%); */
+				color: #0099ff;
+				font-family: monospace;
+				
+			}
+			body {
+				background: #f0f0f0;
+				font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+			}
+
+			.link {
+				color: red;
+			}
+			.link:hover {
+				/* el border afecta directamente el elemento pero el outline se pinta por encima del elemento */
+				/* border: 5px solid red; */
+				outline: 5px solid red;
+			}
+			.link:active {
+				outline: 5px solid blue;
+			}
+		
+
+			#show {
+				background: #09f;
+				color: white;
+				border: 0;
+			}
+
+			li:first-child {
+				color: pink;
+			}
+			li:last-child {
+				color: purple;
+			}
+			
+		</style>
 	</head>
 	<body>
 		<header>
@@ -57,10 +100,10 @@
 			></iframe> -->
 			<nav>
 				<!-- enlaces internos -->
-				<a href="#experiencia">Experiencia</a>
-				<a href="#proyectos">Proyectos</a>
+				<a class="link" href="#experiencia">Experiencia</a>
+				<a class="link" href="#proyectos">Proyectos</a>
 				<!-- enlaces externos -->
-				<a href="https://twitch.tv/midudev" target="_blank" rel="noreferrer"
+				<a class="link" href="https://twitch.tv/midudev" target="_blank" rel="noreferrer"
 					>Twitch</a
 				>
 			</nav>
@@ -90,11 +133,11 @@
 
 			window.hide.addEventListener('click', () => {
 				window.dialog.close();
-			})
+			});
 		</script>
 
 		<main>
-			<p>
+			<p class="description">
 				+15 años de experiencia como <strong>Ingeniero de Software</strong> .
 				Creador y divulgador de programacion
 			</p>
