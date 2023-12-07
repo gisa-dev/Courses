@@ -1,3 +1,5 @@
+import java.lang.NullPointerException
+
 const val PI = 3.1416
 
 fun main(args: Array<String>) {
@@ -39,7 +41,7 @@ fun main(args: Array<String>) {
           "Tienes un nombre corto"
       }
       println(mensaje)
-  */
+
     val nombreColor = "Carmesi"
 
     when (nombreColor) {
@@ -63,4 +65,67 @@ fun main(args: Array<String>) {
         else -> "Estos zapatos solo vienen en tallas 41,42,43,44 y 45"
     }
     println(mensaje)
+
+
+    var contador = 10
+
+    while (contador > 0) {
+        println("El valor de contador es $contador")
+        contador--
+    }
+    println("---------------------------------------------------------------")
+
+    do {
+        println("Generando numero aleatorio...")
+        val numeroAleatorio = (0..100).random()
+        println("El numero generado es $numeroAleatorio")
+    } while (numeroAleatorio > 50)
+
+
+    val listaDeFrutas = listOf("Manzana", "Pera", "Limon", "Melon")
+
+    for (fruta in listaDeFrutas) {
+        println("Hoy voy a comerme una fruta que se llama $fruta")
+    }
+    println("---------------------------------------------------------------")
+    listaDeFrutas.forEach {
+        fruta -> println("Hoy voy a comerme una fruta nueva se llama $fruta")
+    }
+    println("---------------------------------------------------------------")
+    val caracteresDeFruta = listaDeFrutas.map { fruta -> fruta.length }
+    println(caracteresDeFruta)
+
+    println("---------------------------------------------------------------")
+    val listaFiltrada = caracteresDeFruta.filter { caracteresFruta -> caracteresFruta > 5 }
+
+    println(listaFiltrada)
+
+
+
+    var nombre: String? = null
+
+    try {
+        throw NullPointerException("Referencia nula")
+    } catch (exepcion: NullPointerException) {
+        println("Ha ocurrido un error")
+    } finally {
+        println("Finalmente ha ocurrido un error cerrando app")
+    }
+
+    val primerValor = 0
+    val segundoValor = 10
+    val resultado: Int = try {
+        primerValor / segundoValor
+    } catch (exeption: Exception) {
+        0
+    }
+
+    println(resultado)
+
+     */
+
+    var nombre: String? = null
+
+    val caracterDeNombre: Int = nombre?.length ?: 0
+    println(caracterDeNombre)
 }
