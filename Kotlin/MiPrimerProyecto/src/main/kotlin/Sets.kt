@@ -1,5 +1,4 @@
-fun main(args: Array<String>) {
-
+fun main() {
     val vocalesRepetidas = setOf("a","e","i","o","u","a","e","i","o","u")
     println(vocalesRepetidas)
 
