@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ExerciseAndroid</string>
+    <string name="card_male">Male</string>
+    <string name="card_female">Female</string>
+    <string name="card_height">Height</string>
+    <string name="card_weight">Weight</string>
+    <string name="card_age">Age</string>
+    <string name="button_calculate">Calculate</string>
 </resources>

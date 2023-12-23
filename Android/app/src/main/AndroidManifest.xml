@@ -13,6 +13,9 @@
         android:theme="@style/Theme.ExerciseAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".imccalculator.ImcCalculatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".MenuActivity"
             android:exported="true">
             <intent-filter>
@@ -26,9 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".exercises.firstapp.FirstAppActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>
