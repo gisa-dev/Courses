@@ -6,4 +6,20 @@
     <string name="card_weight">Weight</string>
     <string name="card_age">Age</string>
     <string name="button_calculate">Calculate</string>
+    <string name="button_recalculate">Re-Calculate</string>
+    <string name="result">Your Result</string>
+
+    <string name="error">Error</string>
+
+    <string name="title_low_weight">Low Weight</string>
+    <string name="desc_low_weight">This can be indicative of insufficient nutrition or underlying health conditions.</string>
+
+    <string name="title_normal_weight">Normal Weight</string>
+    <string name="desc_normal_weight">Maintaining a normal weight contributes to optimal physical and mental health.</string>
+
+    <string name="title_overweight">Overweight</string>
+    <string name="desc_overweight">This can be a result of excess body fat, often linked to lifestyle factors such as diet and exercise.</string>
+
+    <string name="title_obesity">Obesity</string>
+    <string name="desc_obesity">This condition poses serious health risks, such as heart disease, diabetes, and joint problems.</string>
 </resources>

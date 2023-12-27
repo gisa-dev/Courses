@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ExerciseAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".todoapp.TODOActivity"
+            android:exported="false" />
+        <activity
+            android:name=".imccalculator.ResultIMCActivity"
+            android:exported="false" />
+        <activity
             android:name=".imccalculator.ImcCalculatorActivity"
             android:exported="false" />
         <activity
@@ -29,7 +35,7 @@
             android:exported="false" />
         <activity
             android:name=".exercises.firstapp.FirstAppActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
