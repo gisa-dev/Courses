@@ -1,4 +1,5 @@
 <resources>
+    <!--imc app-->
     <string name="app_name">ExerciseAndroid</string>
     <string name="card_male">Male</string>
     <string name="card_female">Female</string>
@@ -22,4 +23,8 @@
 
     <string name="title_obesity">Obesity</string>
     <string name="desc_obesity">This condition poses serious health risks, such as heart disease, diabetes, and joint problems.</string>
+
+    <!--todo app-->
+
+    <string name="as"></string>
 </resources>
