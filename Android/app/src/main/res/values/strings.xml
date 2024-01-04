@@ -26,5 +26,12 @@
 
     <!--todo app-->
 
-    <string name="as"></string>
+    <string name="todo_title">Welcome</string>
+    <string name="todo_categories">Categories</string>
+    <string name="todo_tasks">Tasks</string>
+    <string name="todo_text_hint">Add task</string>
+    <string name="todo_text_button_create">Create Task</string>
+    <string name="todo_radio_button_text_business">Business</string>
+    <string name="todo_radio_button_text_personal">Personal</string>
+    <string name="todo_radio_button_text_others">Others</string>
 </resources>
