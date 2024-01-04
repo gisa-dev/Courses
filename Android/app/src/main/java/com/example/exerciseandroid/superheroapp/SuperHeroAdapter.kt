@@ -7,6 +7,12 @@ import com.example.exerciseandroid.R
 
 class SuperHeroAdapter(var superHeroList: List<SuperHeroItemResponse> = emptyList()) :
     RecyclerView.Adapter<SuperHeroViewHolder>() {
+
+    fun updateList(newList: List<SuperHeroItemResponse>) {
+        superHeroList = newList
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuperHeroViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return SuperHeroViewHolder(layoutInflater.inflate(R.layout.item_superhero, parent, false))
