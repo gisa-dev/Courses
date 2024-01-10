@@ -9,8 +9,9 @@ class SuperHeroViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val binding = ItemSuperheroBinding.bind(view)
 
-    fun bind(superHero: SuperHeroItemResponse) {
+    fun bind(superHero: SuperHeroItemResponse, onItemSelected: (String) -> Unit) {
         binding.tvSuperHeroName.text = superHero.name
         Picasso.get().load(superHero.image.url).into(binding.ivSuperHero)
+        binding.root.setOnClickListener { onItemSelected(superHero.id) }
     }
 }

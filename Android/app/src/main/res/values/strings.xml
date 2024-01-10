@@ -34,4 +34,13 @@
     <string name="todo_radio_button_text_business">Business</string>
     <string name="todo_radio_button_text_personal">Personal</string>
     <string name="todo_radio_button_text_others">Others</string>
+
+<!--    superhero app-->
+
+    <string name="superhero_stat_intelligence">intelligence</string>
+    <string name="superhero_stat_strength">strength</string>
+    <string name="superhero_stat_speed">speed</string>
+    <string name="superhero_stat_durability">durability</string>
+    <string name="superhero_stat_power">power</string>
+    <string name="superhero_stat_combat">combat</string>
 </resources>
