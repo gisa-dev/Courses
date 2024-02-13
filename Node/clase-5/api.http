@@ -1,0 +1,34 @@
+### Recuperar todas las peliculas
+GET http://localhost:1234/movies
+
+### Recuperar una sola pelicula
+GET http://localhost:1234/movies/3ffcdee1-b942-11ee-ab79-00d86185847b
+
+### Recuperar todas las peliculas por genero
+GET http://localhost:1234/movies?genre=fantasy
+
+### Crear una nueva pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+{
+  "title": "The Godfather 2",
+  "year": 1972,
+  "director": "Francis Ford Coppola",
+  "duration": 175,
+  "poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
+  "genre": ["Drama", "Crime"],
+  "rate": 9.2
+}
+
+### Actualizar una pelicula
+PATCH  http://localhost:1234/movies/257b7667-b9f0-11ee-ab79-00d86185847b
+Content-Type: application/json
+
+{
+  "year": 2000,
+  "title": "The Godfather 3"
+}
+
+### Eliminar una pelicula
+DELETE http://localhost:1234/movies/3ffcdee1-b942-11ee-ab79-00d86185847b
