@@ -8,7 +8,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.pokedex.R
 
-
 val Roboto = FontFamily(
     Font(R.font.roboto_light, FontWeight.Light),
     Font(R.font.roboto_regular, FontWeight.Normal),
