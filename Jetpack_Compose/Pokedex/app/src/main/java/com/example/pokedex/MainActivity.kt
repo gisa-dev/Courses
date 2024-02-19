@@ -40,6 +40,7 @@ fun Pokedex() {
         startDestination = POKEMON_LIST_SCREEN
     ) {
 
+
         composable(POKEMON_LIST_SCREEN) {
             PokemonListScreen(navController = navController)
         }
