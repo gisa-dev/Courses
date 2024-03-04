@@ -1,5 +1,11 @@
 // import {BasicTypes, ObjectLiterals, BasicFuntions} from './typescript'
-import {Counter} from './components'
+
+import {
+	// Counter,
+	// CounterWithHook,
+	// LoginPage,
+	UserPage
+} from './components'
 
 const App = () => {
 	return (
@@ -9,7 +15,10 @@ const App = () => {
 			{/* <BasicTypes /> */}
 			{/* <ObjectLiterals /> */}
 			{/* <BasicFuntions/> */}
-			<Counter />
+			{/* <Counter /> */}
+			{/* <CounterWithHook /> */}
+			{/* <LoginPage /> */}
+			<UserPage />
 		</main>
 	)
 }
