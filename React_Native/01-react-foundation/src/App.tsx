@@ -4,7 +4,8 @@ import {
 	// Counter,
 	// CounterWithHook,
 	// LoginPage,
-	UserPage
+	// UserPage
+	FormsPage
 } from './components'
 
 const App = () => {
@@ -18,7 +19,8 @@ const App = () => {
 			{/* <Counter /> */}
 			{/* <CounterWithHook /> */}
 			{/* <LoginPage /> */}
-			<UserPage />
+			{/* <UserPage /> */}
+			<FormsPage />
 		</main>
 	)
 }
