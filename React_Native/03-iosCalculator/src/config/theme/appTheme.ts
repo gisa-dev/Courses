@@ -38,12 +38,11 @@ export const globalStyles = StyleSheet.create({
 
   row: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    flexWrap:"wrap",
+    justifyContent: 'center',
     marginBottom: 18,
-    // paddingHorizontal: 10,
-    // backgroundColor:"red",
-    gap:10
+    paddingHorizontal: 10
+
+
   },
 
   button: {
@@ -52,6 +51,7 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: colors.darkGray,
     borderRadius: 100,
     justifyContent: 'center',
+    marginHorizontal: 10
   },
 
   buttonText: {
