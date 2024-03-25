@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, Text} from 'react-native';
 import React from 'react';
 import {globalStyles} from '../../theme/theme';
 
@@ -14,5 +14,3 @@ export const PrimaryButton = ({label, onPress}: Props) => {
     </Pressable>
   );
 };
-
-const styles = StyleSheet.create({});

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Text, View} from 'react-native';
 import React from 'react';
 
 export const Tab1Screen = () => {
@@ -8,5 +8,3 @@ export const Tab1Screen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
