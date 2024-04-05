@@ -1,6 +1,11 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import {Animation101Screen, Animation102Screen, HomeScreen} from '../screens';
+import {
+  Animation101Screen,
+  Animation102Screen,
+  HomeScreen,
+  SwitchScreen,
+} from '../screens';
 export type RootStackParams = {
   HomeScreen: undefined;
   Animation101Screen: undefined;
@@ -38,7 +43,11 @@ export const StackNavigator = () => {
         />
       </Stack.Group>
       {/* MenuScreens */}
+
       {/* UIScreens */}
+      <Stack.Group>
+        <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };
