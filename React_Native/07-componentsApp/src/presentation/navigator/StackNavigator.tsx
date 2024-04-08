@@ -1,6 +1,7 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
 import {
+  AlertScreen,
   Animation101Screen,
   Animation102Screen,
   HomeScreen,
@@ -47,6 +48,7 @@ export const StackNavigator = () => {
       {/* UIScreens */}
       <Stack.Group>
         <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
+        <Stack.Screen name="AlertScreen" component={AlertScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
