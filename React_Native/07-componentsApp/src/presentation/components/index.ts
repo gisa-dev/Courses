@@ -5,3 +5,5 @@ export * from './ui/Card';
 export * from './ui/Button';
 export * from './ui/CustomSwitch';
 export * from './ui/Separator';
+export * from './ui/SubTitle';
+export * from './ui/FadeInImage';

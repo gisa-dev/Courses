@@ -4,8 +4,13 @@ import {
   AlertScreen,
   Animation101Screen,
   Animation102Screen,
+  CustomSectionListScreen,
   HomeScreen,
+  InfiniteScrollScreen,
+  ModalScreen,
+  PullToRefreshScreen,
   SwitchScreen,
+  TextInputScreen,
 } from '../screens';
 export type RootStackParams = {
   HomeScreen: undefined;
@@ -44,11 +49,27 @@ export const StackNavigator = () => {
         />
       </Stack.Group>
       {/* MenuScreens */}
+      <Stack.Group>
+        <Stack.Screen
+          name="PullToRefreshScreen"
+          component={PullToRefreshScreen}
+        />
+        <Stack.Screen
+          name="CustomSectionListScreen"
+          component={CustomSectionListScreen}
+        />
+        <Stack.Screen name="ModalScreen" component={ModalScreen} />
+        <Stack.Screen
+          name="InfiniteScrollScreen"
+          component={InfiniteScrollScreen}
+        />
+      </Stack.Group>
 
       {/* UIScreens */}
       <Stack.Group>
         <Stack.Screen name="SwitchScreen" component={SwitchScreen} />
         <Stack.Screen name="AlertScreen" component={AlertScreen} />
+        <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
