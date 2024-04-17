@@ -1,12 +1,13 @@
 import {View, StyleProp, ViewStyle} from 'react-native';
 import React, {PropsWithChildren} from 'react';
-import {colors} from '../../../config/theme/theme';
+import {useThemeContext} from '../../hooks/useThemeContext';
 
 interface Props extends PropsWithChildren {
   style?: StyleProp<ViewStyle>;
 }
 
 export const Card = ({style, children}: Props) => {
+  const {colors} = useThemeContext();
   return (
     <View
       style={[

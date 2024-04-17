@@ -1,0 +1,11 @@
+import {useContext} from 'react';
+import {ThemeContext} from '../context/ThemeContext';
+
+export const useThemeContext = () => {
+  const {isDark, theme} = useContext(ThemeContext);
+
+  return {
+    isDark,
+    theme,
+  };
+};

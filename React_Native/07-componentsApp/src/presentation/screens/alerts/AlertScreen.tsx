@@ -3,31 +3,48 @@ import React from 'react';
 import {Button, CustomView, Title} from '../../components';
 import {globalStyles} from '../../../config/theme/theme';
 import {showPrompt} from '../../../config/adapters/prompt.adapter';
+import {useThemeContext} from '../../hooks/useThemeContext';
 
 export const AlertScreen = () => {
+  const {isDark} = useThemeContext();
+
   const createTwoButtonAlert = () =>
-    Alert.alert('Alert Title', 'My Alert Msg', [
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
       {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
+        userInterfaceStyle: isDark ? 'dark' : 'light',
       },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ]);
+    );
 
   const createThreeButtonAlert = () =>
-    Alert.alert('Alert Title', 'My Alert Msg', [
+    Alert.alert(
+      'Alert Title',
+      'My Alert Msg',
+      [
+        {
+          text: 'Ask me later',
+          onPress: () => console.log('Ask me later pressed'),
+        },
+        {
+          text: 'Cancel',
+          onPress: () => console.log('Cancel Pressed'),
+          style: 'cancel',
+        },
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
+      ],
       {
-        text: 'Ask me later',
-        onPress: () => console.log('Ask me later pressed'),
+        userInterfaceStyle: isDark ? 'dark' : 'light',
       },
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ]);
+    );
 
   const onShowPrompt = () => {
     showPrompt({

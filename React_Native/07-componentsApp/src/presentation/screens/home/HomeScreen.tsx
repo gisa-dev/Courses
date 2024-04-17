@@ -3,6 +3,7 @@ import React from 'react';
 import {globalStyles} from '../../../config/theme/theme';
 import {ScrollView} from 'react-native-gesture-handler';
 import {MenuItem, Title} from '../../components';
+import {useThemeContext} from '../../hooks/useThemeContext';
 
 const animationMenuItems = [
   // 01-animationMenuItems
@@ -72,8 +73,13 @@ const uiMenuItems = [
 ];
 
 export const HomeScreen = () => {
+  const {colors} = useThemeContext();
   return (
-    <View style={globalStyles.mainContainer}>
+    <View
+      style={[
+        globalStyles.mainContainer,
+        {backgroundColor: colors.background},
+      ]}>
       <View style={globalStyles.globalMargin}>
         <ScrollView>
           <Title text="Menu" safe />

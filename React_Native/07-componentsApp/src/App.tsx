@@ -1,13 +1,13 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
 import 'react-native-gesture-handler';
 import {StackNavigator} from './presentation/navigator/StackNavigator';
+import {ThemeProvider} from './presentation/context/ThemeContext';
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <ThemeProvider>
       <StackNavigator />
-    </NavigationContainer>
+    </ThemeProvider>
   );
 };
 

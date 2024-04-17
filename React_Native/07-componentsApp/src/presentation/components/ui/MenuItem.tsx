@@ -1,11 +1,10 @@
 import {Text, Pressable, View, StyleSheet} from 'react-native';
 import React from 'react';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {RootStackParams} from '../../navigator/StackNavigator';
-import {colors} from '../../../config/theme/theme';
 import {Separator} from './Separator';
+import {useThemeContext} from '../../hooks/useThemeContext';
 
 interface Props {
   name: string;
@@ -23,6 +22,8 @@ export const MenuItem = ({
   isLast = false,
 }: Props) => {
   const navigator = useNavigation<NavigationProp<RootStackParams>>();
+
+  const {colors} = useThemeContext();
   return (
     <>
       <Pressable onPress={() => navigator.navigate(component)}>
