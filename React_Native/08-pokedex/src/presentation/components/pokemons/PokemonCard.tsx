@@ -1,10 +1,11 @@
 import {Image, Pressable, StyleSheet, View} from 'react-native';
 import React from 'react';
-import {Pokemon} from '../../../domain/pokemon';
 import {Card, Text} from 'react-native-paper';
-import {FadeInImage} from '../ui/FadeInImage';
 import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {FadeInImage} from '../ui/FadeInImage';
+import {Pokemon} from '../../../domain/pokemon';
 import {RootStackParams} from '../../navigation/StackNavigator';
+import {Formatter} from '../../../config/helpers/formatter';
 
 interface Props {
   pokemon: Pokemon;
@@ -21,7 +22,7 @@ export const PokemonCard = ({pokemon}: Props) => {
       }>
       <Card style={[styles.cardContainer, {backgroundColor: pokemon.color}]}>
         <Text style={styles.name} variant="bodyLarge" lineBreakMode="middle">
-          {pokemon.name} {'\n#' + pokemon.id}
+          {Formatter.capitalize(pokemon.name)} {'\n#' + pokemon.id}
         </Text>
 
         {/* Pokeball background image */}
