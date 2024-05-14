@@ -4,9 +4,11 @@ import { MainLayout } from '../../layouts/MainLayout'
 import { FAB, FullScreenLoader, ProductList } from '../../components'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { RootStackParams } from '../../navigation/StackNavigator'
+import { useAuthStore } from '../../store/auth/useAuthStore'
 
 export const HomeScreen = () => {
 	const navigation = useNavigation<NavigationProp<RootStackParams>>()
+	const {logout} = useAuthStore()
 
 	// const { isLoading, data: products = [] } = useQuery({
 	// 	queryKey: ['products', 'infinite'],
@@ -29,7 +31,7 @@ export const HomeScreen = () => {
 				title='TesloShop - Products'
 				subtitle='See our products'
 				rightActionIcon='person-outline'
-				rightAction={() => console.log('right action')}
+				rightAction={logout}
 			>
 				{isLoading ? (
 					<FullScreenLoader />

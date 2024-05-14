@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { ScrollView } from 'react-native'
+import { ScrollView, useWindowDimensions } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Formik } from 'formik'
@@ -8,6 +8,7 @@ import {
 	ButtonGroup,
 	Input,
 	Layout,
+	Text,
 	useTheme
 } from '@ui-kitten/components'
 import { MainLayout } from '../../layouts/MainLayout'
@@ -16,14 +17,14 @@ import { CustomIcon, ProductImages } from '../../components'
 import { Product } from '../../../domain/entities/product'
 import { getProductById, updateCreateProduct } from '../../../actions/products'
 import { genders, sizes } from '../../../config/constants/constants'
-
-
+import { CameraAdapter } from '../../../config/adapters/camera-adapter'
 
 interface Props extends StackScreenProps<RootStackParams, 'ProductScreen'> {}
 
 export const ProductScreen = ({ route }: Props) => {
 	const productIdRef = useRef(route.params.productId)
 	const theme = useTheme()
+	const { width } = useWindowDimensions()
 
 	const queryClient = useQueryClient()
 
@@ -53,7 +54,16 @@ export const ProductScreen = ({ route }: Props) => {
 			onSubmit={(values) => mutation.mutate(values)}
 		>
 			{({ handleChange, handleSubmit, values, errors, setFieldValue }) => (
-				<MainLayout title={values.title} subtitle={`Price: ${values.price}`}>
+				<MainLayout
+					title={values.title}
+					subtitle={`Price: ${values.price}`}
+					rightAction={async () => {
+						const photos = await CameraAdapter.getPicturesFromLibrary()
+						console.log({ photos })
+						setFieldValue('images', [...values.images, ...photos])
+					}}
+					rightActionIcon='image-outline'
+				>
 					<ScrollView style={{ flex: 1 }}>
 						{/* Images of product */}
 
@@ -172,6 +182,8 @@ export const ProductScreen = ({ route }: Props) => {
 						>
 							Save
 						</Button>
+
+						<Text>{JSON.stringify(values, null, 3)}</Text>
 
 						<Layout style={{ height: 200 }} />
 					</ScrollView>
